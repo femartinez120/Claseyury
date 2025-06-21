@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Primera clase</title>
+    <style>
+        body{
+            background-color: #a9e2f0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #ec4f06;
+            text-align: center;
+        }
+        hr {
+            border: 1px solid #2a13fd;
+            margin: 20px 0;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto; 
+            size: 3px;
+        }
+        table {
+            background-color: #a9e2f0;
+            width: 50%;
+            margin: 0 auto;
+            border-collapse: collapse;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Mis primelas línas de Código HTML5 y JavaScript</h1>
+    <hr>
+    <center>
+    <table border="3" cellpadding="10" cellspacing="0" >
+        <th>Propidad</th>
+        <th>Valor</th>
+        <tbody>
+            <tr>
+                <td>Nombre</td>
+                <td>
+                    <input type="text" name="nombre" id="nombre" placeholder="Escribe tu nombre" required>
+                </td>
+            </tr>
+            <tr>
+                <td>Edad</td>
+                <td>
+                    <input type="number" name="edad" id="edad">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+        <table border="3" cellpadding="10" cellspacing="0">
+            <tr>
+                <td>
+                    <button onclick="comprobar()">Coprobar</button>
+                </td>
+            </tr>
+            
+        </table>
+        <h2>Listado de Peronas</h2>
+        <table border="3">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Clasificación</th>
+                </tr>
+            </thead>
+            <tbody id="listado">
+                <!-- Aquí se mostrarán los datos -->
+            </tbody>
+        </table>
+    </center>
+    <script>
+        persona=Object
+        salida='';
+
+        function comprobar() {
+            persona.nombre = document.getElementById('nombre').value;
+            persona.edad = document.getElementById('edad').value;
+            listar();
+            limpiar();
+        }
+        function limpiar() {
+            document.getElementById('nombre').value = '';
+            document.getElementById('edad').value = '';
+            document.getElementById('nombre').focus();
+        }
+        function listar() {
+            salida += '<tr><td>'+persona.nombre+'</td><td>'+persona.edad+'</td><td>'
+            + clasificar() +'</td></tr>';
+            document.getElementById('listado').innerHTML = salida;
+            
+        }
+        function clasificar() {
+            if (persona.edad < 18) {
+                return 'Menor de edad';
+            } else if (persona.edad >= 18 && persona.edad <= 65) {
+                return 'Adulto';
+            } else {
+                return 'Anciano';
+            }
+        }
+
+    </script>
+</body>
+</html>
